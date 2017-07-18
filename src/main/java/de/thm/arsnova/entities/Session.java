@@ -39,7 +39,7 @@ public class Session implements Entity {
 	private String courseType;
 	private String courseId;
 	private long creationTime;
-	private LearningProgressOptions learningProgressOptions = new LearningProgressOptions();
+	private ScoreOptions learningProgressOptions = new ScoreOptions();
 	private SessionFeature features = new SessionFeature();
 
 	private String ppAuthorName;
@@ -71,7 +71,7 @@ public class Session implements Entity {
 		copy.courseType = original.courseType;
 		copy.courseId = original.courseId;
 		copy.creationTime = original.creationTime;
-		copy.learningProgressOptions = new LearningProgressOptions(original.learningProgressOptions);
+		copy.learningProgressOptions = new ScoreOptions(original.learningProgressOptions);
 		copy.features = new SessionFeature(original.features);
 		// public pool
 		copy.ppAuthorName = original.ppAuthorName;
@@ -222,12 +222,12 @@ public class Session implements Entity {
 
 	@ApiModelProperty(required = true, value = "the learning progress options")
 	@JsonView({View.Persistence.class, View.Public.class})
-	public LearningProgressOptions getLearningProgressOptions() {
+	public ScoreOptions getLearningProgressOptions() {
 		return learningProgressOptions;
 	}
 
 	@JsonView({View.Persistence.class, View.Public.class})
-	public void setLearningProgressOptions(LearningProgressOptions learningProgressOptions) {
+	public void setLearningProgressOptions(ScoreOptions learningProgressOptions) {
 		this.learningProgressOptions = learningProgressOptions;
 	}
 
